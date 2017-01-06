@@ -8,7 +8,8 @@ RUN apt-get update \
         --assume-yes \
         samba \
         wget \
-        && apt-get --quiet --yes clean
+        && apt-get --quiet --yes clean \
+        && rm -rf /var/lib/apt/lists/*
 
 RUN wget -qO /usr/bin/confd --no-check-certificate https://github.com/kelseyhightower/confd/releases/download/v0.12.0-alpha3/confd-0.12.0-alpha3-linux-amd64 && chmod +x /usr/bin/confd
 COPY smb.toml /etc/confd/conf.d/smb.toml
