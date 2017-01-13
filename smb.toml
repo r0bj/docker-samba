@@ -2,5 +2,5 @@
 src = "smb.conf.tmpl"
 dest = "/etc/samba/smb.conf"
 keys = [
-    "/smb_user",
+    "/smb/user",
 ]
