@@ -261,7 +261,7 @@
 [storage-smb]
    comment = storage-smb
    path = /media/share
-   valid users = {{ getv "/smb_user" "smbuser" }}
+   valid users = {{ getv "/smb/user" "smbuser" }}
    read only = yes
    public = no
    guest ok = no
