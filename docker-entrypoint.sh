@@ -5,17 +5,17 @@ if [ -z "$SMB_USER" ]; then
 fi
 
 if [ -n "$SMB_UID" ]; then
-    opts="$opts --uid $SMB_UID"
+    OPTS="$OPTS -u $SMB_UID"
 fi
 
 if [ -n "$SMB_GID" ]; then
-    opts="$opts --gid $SMB_GID"
-    groupadd --gid $SMB_GID $SMB_USER
+    OPTS="$OPTS -G $SMB_USER"
+    addgroup -g $SMB_GID $SMB_USER
 fi
 
-useradd --no-create-home --home-dir /nonexistent --shell /bin/false $opts $SMB_USER
+adduser -D -H -h /nonexistent -g $SMB_USER -s /sbin/nologin $OPTS $SMB_USER
 
-if [ -n "${SMB_PASSWORD}" ]; then
+if [ -n "$SMB_PASSWORD" ]; then
     (echo $SMB_PASSWORD; echo $SMB_PASSWORD) | smbpasswd -s -a $SMB_USER
 fi
 
