@@ -26,4 +26,4 @@ fi
 confd -onetime -backend env
 
 nmbd -D
-exec smbd -FS --no-process-group </dev/null
+exec smbd -F --debug-stdout --no-process-group </dev/null
