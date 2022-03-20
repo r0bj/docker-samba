@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$SMB_USER" ]; then
-    SMB_USER="smbuser"
+    SMB_USER="smb"
 fi
 
 if [ -n "$SMB_UID" ]; then
@@ -25,5 +25,6 @@ fi
 
 confd -onetime -backend env
 
-nmbd -D
+#nmbd -D
+avahi-daemon -D
 exec smbd -F --debug-stdout --no-process-group </dev/null

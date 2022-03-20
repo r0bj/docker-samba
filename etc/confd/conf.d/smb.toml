@@ -3,6 +3,4 @@ src = "smb.conf.tmpl"
 dest = "/etc/samba/smb.conf"
 keys = [
     "/smb/user",
-    "/workgroup",
-    "/netbios/name",
 ]
