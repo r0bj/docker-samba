@@ -8,11 +8,21 @@
     fruit:wipe_intentionally_left_blank_rfork = yes
     fruit:delete_empty_adfiles = yes
 
-[storage-smb]
-    comment = storage-smb
+[storage]
+    comment = storage
     browseable = yes
     path = /media/share
     valid users = {{ getv "/smb/user" "smbuser" }}
     read only = no
     public = no
     guest ok = no
+
+[timemachine]
+    comment = timemachine
+    browseable = yes
+    path = /media/share/timemachine
+    valid users = {{ getv "/smb/user" "smbuser" }}
+    read only = no
+    vfs objects = catia fruit streams_xattr
+    fruit:time machine = yes
+    fruit:time machine max size = 0.5T
