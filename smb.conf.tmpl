@@ -12,7 +12,7 @@
     comment = storage
     browseable = yes
     path = /media/share
-    valid users = {{ getv "/smb/user" "smbuser" }}
+    valid users = $SMB_USER
     read only = no
     public = no
     guest ok = no
@@ -21,7 +21,7 @@
     comment = timemachine
     browseable = yes
     path = /media/share/timemachine
-    valid users = {{ getv "/smb/user" "smbuser" }}
+    valid users = $SMB_USER
     read only = no
     vfs objects = catia fruit streams_xattr
     fruit:time machine = yes

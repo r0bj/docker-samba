@@ -23,7 +23,7 @@ if [ ! -d /media/share ]; then
   mkdir /media/share
 fi
 
-confd -onetime -backend env
+envsubst < smb.conf.tmpl > /etc/samba/smb.conf
 
 #nmbd -D
 avahi-daemon -D
