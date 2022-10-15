@@ -1,4 +1,4 @@
-FROM alpine:3.15
+FROM alpine:3.16
 
 RUN apk add --no-cache bash gettext samba avahi \
   && sed -i 's/#enable-dbus=yes/enable-dbus=no/g' /etc/avahi/avahi-daemon.conf
