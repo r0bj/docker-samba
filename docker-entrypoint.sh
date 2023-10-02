@@ -26,5 +26,4 @@ fi
 envsubst < smb.conf.tmpl > /etc/samba/smb.conf
 
 #nmbd -D
-avahi-daemon -D
 exec smbd -F --debug-stdout --no-process-group </dev/null
